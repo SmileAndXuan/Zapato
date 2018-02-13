@@ -25,9 +25,9 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.zapato.zapato.User;
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.zapato.zapato.User
 
 class MainActivity : AppCompatActivity() {
 
@@ -136,7 +136,7 @@ class MainActivity : AppCompatActivity() {
                         prefs = Prefs(this)
                         val bgColor = prefs!!.bgColor
 
-                        var color = 7777
+                        var color = 777
                         prefs!!.bgColor = color
 
                         Log.d("Store my data", "" + prefs!!.bgColor)
