@@ -4,6 +4,7 @@ package com.zapato.zapato
  * Created by adrian on 2/12/18.
  */
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -14,6 +15,7 @@ class tap_activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //setContentView(R.layout.activity_logindebug)
         setContentView(R.layout.activity_tab)
 
         // setup tap host
@@ -59,7 +61,16 @@ class tap_activity : AppCompatActivity() {
         //pref.getFloat("key_name", null); // getting Float
         //pref.getLong("key_name", null); // getting Long
         //pref.getBoolean("key_name", null); // getting boolean
+        //username_textview.text = "Hi " + username + pref.getString("key_name", null)
         ///////////////////////////////////////////////////
+
+        tab_host.setOnClickListener { UserCustomMethod() }
+    }
+
+    fun UserCustomMethod() {
+        val intent2 = Intent(this, MainActivity::class.java)
+        //intent.putExtra("username", user.name)
+        startActivity(intent2)
     }
 
 }

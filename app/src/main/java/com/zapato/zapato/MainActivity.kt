@@ -56,6 +56,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //val intent = Intent(this, LoginActivity::class.java)
+        //intent.putExtra("username", user.name)
+        //startActivity(intent)
+
 
         signInButton = findViewById<View>(R.id.sign_in_button) as SignInButton
 
@@ -173,6 +177,7 @@ class MainActivity : AppCompatActivity() {
 
                         // segue to tab_activity
                         val intent = Intent(this, tap_activity::class.java)
+                        //val intent = Intent(this, LoginActivity::class.java)
                         intent.putExtra("username", user.name)
                         startActivity(intent)
 
