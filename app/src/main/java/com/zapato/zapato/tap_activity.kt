@@ -46,6 +46,20 @@ class tap_activity : AppCompatActivity() {
         prefs = Prefs(this)
         Log.d("Recall my data", "" + prefs!!.bgColor)
         username_textview.text = "Hi " + username + prefs!!.bgColor
+
+
+
+        ///////////////////////////////////////////////////
+        var pref = getApplicationContext().getSharedPreferences("MyPref", 0) // 0 - for private mode
+        var editor = pref.edit()
+        // returns stored preference value
+        // If value is not present return second param value - In this case null
+        pref.getString("key_name", null); // getting String
+        //pref.getInt("key_name", null); // getting Integer
+        //pref.getFloat("key_name", null); // getting Float
+        //pref.getLong("key_name", null); // getting Long
+        //pref.getBoolean("key_name", null); // getting boolean
+        ///////////////////////////////////////////////////
     }
 
 }

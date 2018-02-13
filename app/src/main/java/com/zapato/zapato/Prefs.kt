@@ -3,6 +3,9 @@ package com.zapato.zapato
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.content.Context;
+import android.content.SharedPreferences.Editor
+
+
 
 /**
  * Created by james on 2/12/18.

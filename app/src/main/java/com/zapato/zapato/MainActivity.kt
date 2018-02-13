@@ -131,6 +131,18 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener(this@MainActivity) { AuthResultTask ->
                     if (AuthResultTask.isSuccessful) {
 
+                        //////////////////////////////////////////////////////////////////////
+                        var pref = getApplicationContext().getSharedPreferences("MyPref", 0) // 0 - for private mode
+                        var editor = pref.edit()
+                        editor.putBoolean("key_name", true); // Storing boolean - true/false
+                        editor.putString("key_name", "string value"); // Storing string
+                        //editor.putInt("key_name", "int value"); // Storing integer
+                        //editor.putFloat("key_name", "float value"); // Storing float
+                        //editor.putLong("key_name", "long value"); // Storing long
+
+                        editor.commit(); // commit changes
+                        //////////////////////////////////////////////////////////////////////
+
                         var prefs: Prefs? = null
 
                         prefs = Prefs(this)
