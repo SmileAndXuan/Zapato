@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "666385105172",
+    "firebase_url": "https://zapato-fde27.firebaseio.com",
+    "project_id": "zapato-fde27",
+    "storage_bucket": "zapato-fde27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666385105172:android:1f2ebadf1912d66a",
+        "android_client_info": {
+          "package_name": "com.zapato.zapato"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666385105172-vejebglm681mjvo3kht2fctoan04p1mc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6_ETO7FB2ytgHNGFYRKtks1mBqGmiiqQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
