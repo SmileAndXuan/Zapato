@@ -176,8 +176,8 @@ class MainActivity : AppCompatActivity() {
                         val user = User(firebaseUser!!.displayName!!.toString(), firebaseUser.email!!.toString(), firebaseUser.uid)
 
                         // segue to tab_activity
-                        val intent = Intent(this, tap_activity::class.java)
-                        //val intent = Intent(this, LoginActivity::class.java)
+                        //val intent = Intent(this, tap_activity2::class.java)
+                        val intent = Intent(this, LoginActivity::class.java)
                         intent.putExtra("username", user.name)
                         startActivity(intent)
 
