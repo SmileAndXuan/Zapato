@@ -136,7 +136,7 @@ class MainActivity : AppCompatActivity() {
                         prefs = Prefs(this)
                         val bgColor = prefs!!.bgColor
 
-                        var color = 777
+                        var color = 7777777
                         prefs!!.bgColor = color
 
                         Log.d("Store my data", "" + prefs!!.bgColor)
