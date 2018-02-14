@@ -17,7 +17,7 @@ import com.google.firebase.auth.UserInfo
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class tap_activity : AppCompatActivity() {
+class tap_activity2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,19 +51,20 @@ class tap_activity : AppCompatActivity() {
         // Firebase record call as current google logged in user
         var fba : FirebaseUser? = FirebaseAuth.getInstance().getCurrentUser()
         var db : DatabaseReference? = FirebaseDatabase.getInstance().reference
-        db!!.child("users").child(fba!!.uid).child("name").setValue("Bruh==James")
+        db!!.child("users").child(fba!!.uid).child("email").setValue("jamesajfreedompop1@gmail.com")
+        db!!.child("users").child(fba!!.uid).child("name").setValue("James")
         db!!.child("users").child(fba!!.uid).child("shipping_address").setValue("addresses")
         db!!.child("users").child(fba!!.uid).child("shipping_address").child("addresses1").setValue("home")
-        db!!.child("users").child(fba!!.uid).child("shipping_address").child("addresses1").child("home").setValue("Bruh's room")
-        db!!.child("users").child(fba!!.uid).child("shipping_address").child("addresses2").setValue("dorm")
-        db!!.child("users").child(fba!!.uid).child("shipping_address").child("addresses3").setValue("man cave in the mountain")
-        db!!.child("users").child(fba!!.uid).child("shipping_date").setValue("send it now duh")
+        db!!.child("users").child(fba!!.uid).child("shipping_address").child("addresses1").child("home").setValue("James's room")
+        db!!.child("users").child(fba!!.uid).child("shipping_address").child("addresses2").setValue("school")
+        db!!.child("users").child(fba!!.uid).child("shipping_address").child("addresses3").setValue("lab")
+        db!!.child("users").child(fba!!.uid).child("shipping_date").setValue("pretty soon")
 
-        tab_host.setOnClickListener { UserCustomMethod() }
+        //tab_host.setOnClickListener { UserCustomMethod() }
     }
 
     fun UserCustomMethod() {
-        val intent2 = Intent(this, tap_activity2::class.java)
+        val intent2 = Intent(this, MainActivity::class.java)
         //intent.putExtra("datatopasstonextactivity", user.datatopasstonextactivity)
         startActivity(intent2)
     }
