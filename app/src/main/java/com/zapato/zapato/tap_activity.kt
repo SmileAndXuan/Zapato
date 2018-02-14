@@ -51,7 +51,13 @@ class tap_activity : AppCompatActivity() {
         // Firebase record call as current google logged in user
         var fba : FirebaseUser? = FirebaseAuth.getInstance().getCurrentUser()
         var db : DatabaseReference? = FirebaseDatabase.getInstance().reference
-        db!!.child("users").child(fba!!.uid).child("name").setValue("bruh")
+        db!!.child("users").child(fba!!.uid).child("name").setValue("Bruh==James")
+        db!!.child("users").child(fba!!.uid).child("shipping_address").setValue("addresses")
+        db!!.child("users").child(fba!!.uid).child("shipping_address").child("addresses1").setValue("home")
+        db!!.child("users").child(fba!!.uid).child("shipping_address").child("addresses1").child("home").setValue("Bruh's room")
+        db!!.child("users").child(fba!!.uid).child("shipping_address").child("addresses2").setValue("dorm")
+        db!!.child("users").child(fba!!.uid).child("shipping_address").child("addresses3").setValue("man cave in the mountain")
+        db!!.child("users").child(fba!!.uid).child("shipping_date").setValue("send it now duh")
 
         //tab_host.setOnClickListener { UserCustomMethod() }
     }

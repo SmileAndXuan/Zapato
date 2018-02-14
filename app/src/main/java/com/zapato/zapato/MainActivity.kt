@@ -137,11 +137,6 @@ class MainActivity : AppCompatActivity() {
                         // creating a user object
                         val user = User(firebaseUser!!.displayName!!.toString(), firebaseUser.email!!.toString(), firebaseUser.uid)
 
-                        // Firebase record call as current google logged in user
-                        var fba : FirebaseUser? = FirebaseAuth.getInstance().getCurrentUser()
-                        var db : DatabaseReference? = FirebaseDatabase.getInstance().reference
-                        db!!.child("users").child(fba!!.uid).child("name").setValue("yo dude")
-
                         // segue to tab_activity
                         val intent = Intent(this, tap_activity::class.java)
                         intent.putExtra("username", user.name)
@@ -152,8 +147,6 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
     }
-
-
 
     fun UserSignOutFunction() {
 
