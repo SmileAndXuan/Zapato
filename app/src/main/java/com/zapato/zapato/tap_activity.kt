@@ -15,7 +15,8 @@ import kotlinx.android.synthetic.main.activity_tab.*
 import com.google.firebase.internal.FirebaseAppHelper.getUid
 //import com.sun.org.apache.xml.internal.security.algorithms.JCEMapper.getProviderId
 import com.google.firebase.auth.UserInfo
-
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 
 class tap_activity : AppCompatActivity() {
@@ -70,7 +71,7 @@ class tap_activity : AppCompatActivity() {
         //pref.getBoolean("key_name", null); // getting boolean
         //username_textview.text = "Hi " + username + pref.getString("key_name", null)
         ///////////////////////////////////////////////////
-
+/*
         Log.d("FuckYouuuuuuuu one", "" + FirebaseAuth.getInstance().getCurrentUser())
         Log.d("FuckYouuuuuuuu two", "" + FirebaseAuth.getInstance().getCurrentUser())
 
@@ -79,6 +80,21 @@ class tap_activity : AppCompatActivity() {
         Log.d("FuckYouuuuuuuu four", fba!!.email)
         Log.d("FuckYouuuuuuuu five", fba!!.uid)
 
+        var fbb : FirebaseUser? = FirebaseAuth.getInstance().currentUser
+*/
+
+        //FirebaseDatabase.getInstance().getReference().child("name").setValue("aaa")
+        //var db : DatabaseReference? = null
+        //db = FirebaseDatabase.getInstance().reference
+        //FirebaseDatabase.getInstance().getReference("name")
+        //db!!.child("users").child(fba!!.uid).child("name").setValue("cool, bro")
+        //FirebaseDatabase.getInstance().getReference().child("name").setValue("hoiooio")
+        //Log.d("FU5", FirebaseDatabase.getInstance().getReference().child("name").setValue("hoiooio")
+
+        var fba : FirebaseUser? = FirebaseAuth.getInstance().getCurrentUser()
+        var db : DatabaseReference? = null
+        db = FirebaseDatabase.getInstance().reference
+        db!!.child("users").child(fba!!.uid).child("name").setValue("cool, bro")
 
 
 
