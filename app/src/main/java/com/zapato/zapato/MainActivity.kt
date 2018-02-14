@@ -51,15 +51,9 @@ class MainActivity : AppCompatActivity() {
     var database = FirebaseDatabase.getInstance().setPersistenceEnabled(true)
     var my_users_Ref = FirebaseDatabase.getInstance().getReference("users")
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //val intent = Intent(this, LoginActivity::class.java)
-        //intent.putExtra("username", user.name)
-        //startActivity(intent)
-
 
         signInButton = findViewById<View>(R.id.sign_in_button) as SignInButton
 
@@ -73,7 +67,6 @@ class MainActivity : AppCompatActivity() {
 
         // Getting Firebase Auth Instance into firebaseAuth object.
         firebaseAuth = FirebaseAuth.getInstance()
-
 
         // Creating and Configuring Google Sign In object.
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -135,51 +128,21 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener(this@MainActivity) { AuthResultTask ->
                     if (AuthResultTask.isSuccessful) {
 
-                        /*
-                        //////////////////////////////////////////////////////////////////////
-                        var pref = getApplicationContext().getSharedPreferences("MyPref", 0) // 0 - for private mode
-                        var editor = pref.edit()
-                        editor.putBoolean("key_name", true); // Storing boolean - true/false
-                        editor.putString("key_name", " gj bro"); // Storing string
-                        //editor.putInt("key_name", "int value"); // Storing integer
-                        //editor.putFloat("key_name", "float value"); // Storing float
-                        //editor.putLong("key_name", "long value"); // Storing long
-
-                        editor.commit(); // commit changes
-                        //////////////////////////////////////////////////////////////////////
-                        */
-                        /*
-                        var prefs: Prefs? = null
-
-                        prefs = Prefs(this)
-                        val bgColor = prefs!!.bgColor
-
-                        var color = 777
-                        prefs!!.bgColor = color
-
-                        Log.d("Store my data", "" + prefs!!.bgColor)
-                        */
-
-                        //SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-                        //editor.putString("name", "Elena");
-                        //editor.putInt("idName", 12);
-                        //editor.apply();
-                        //"com.example.myapp.PREFERENCE_FILE_KEY"
-                        //val sharedPref = activity?.getSharedPreferences(
-                        //        getString(R.string.preference_file_key), Context.MODE_PRIVATE)
-
                         // Getting Current Login user details.
                         val firebaseUser = firebaseAuth.currentUser
 
                         // saving new user's data to firebase database
-                        //writeNewUser(LoginUserName.text.toString(), LoginUserEmail.text.toString());
-                        writeNewUser("isejio","oiwejoiwjeg");
+                        writeNewUser("myusername", "myemail");
 
                         // creating a user object
                         val user = User(firebaseUser!!.displayName!!.toString(), firebaseUser.email!!.toString(), firebaseUser.uid)
 
+                        // Firebase record call as current google logged in user
+                        var fba : FirebaseUser? = FirebaseAuth.getInstance().getCurrentUser()
+                        var db : DatabaseReference? = FirebaseDatabase.getInstance().reference
+                        db!!.child("users").child(fba!!.uid).child("name").setValue("yo dude")
+
                         // segue to tab_activity
-                        //val intent = Intent(this, tap_activity2::class.java)
                         val intent = Intent(this, tap_activity::class.java)
                         intent.putExtra("username", user.name)
                         startActivity(intent)
