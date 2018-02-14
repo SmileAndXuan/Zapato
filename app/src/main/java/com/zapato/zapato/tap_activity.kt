@@ -9,7 +9,14 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_tab.*
+import com.google.firebase.internal.FirebaseAppHelper.getUid
+//import com.sun.org.apache.xml.internal.security.algorithms.JCEMapper.getProviderId
+import com.google.firebase.auth.UserInfo
+
+
 
 class tap_activity : AppCompatActivity() {
 
@@ -64,7 +71,35 @@ class tap_activity : AppCompatActivity() {
         //username_textview.text = "Hi " + username + pref.getString("key_name", null)
         ///////////////////////////////////////////////////
 
-        tab_host.setOnClickListener { UserCustomMethod() }
+        Log.d("FuckYouuuuuuuu one", "" + FirebaseAuth.getInstance().getCurrentUser())
+        Log.d("FuckYouuuuuuuu two", "" + FirebaseAuth.getInstance().getCurrentUser())
+
+        var fba : FirebaseUser? = FirebaseAuth.getInstance().getCurrentUser()
+        Log.d("FuckYouuuuuuuu three", fba!!.displayName)
+        Log.d("FuckYouuuuuuuu four", fba!!.email)
+        Log.d("FuckYouuuuuuuu five", fba!!.uid)
+
+
+
+
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            for (profile in user.providerData) {
+                // Id of the provider (ex: google.com)
+                val providerId = profile.providerId
+
+                // UID specific to the provider
+                val uid = profile.uid
+
+                // Name, email address, and profile photo Url
+                val name = profile.displayName
+                val email = profile.email
+                val photoUrl = profile.photoUrl
+            }
+        }
+
+
+        //tab_host.setOnClickListener { UserCustomMethod() }
     }
 
     fun UserCustomMethod() {
@@ -73,4 +108,25 @@ class tap_activity : AppCompatActivity() {
         startActivity(intent2)
     }
 
+    //AuthStateListener authlistener
+    /*
+    authlistener = new FirebaseAuth.AuthStateListener() {
+        //@Override
+        fun onAuthStateChanged(firebaseAuth : FirebaseAuth ) {
+            FirebaseUser user = firebaseAuth.getCurrentUser()
+            if (user != null) {
+                // User is signed in
+
+            } else {
+                // User is signed out
+            }
+        }
+    };
+    FirebaseAuth.getInstance().addAuthStateListener(authListener)
+    */
+
+    fun getFirebaseUser() : FirebaseUser? {
+        Log.d("testtest", "" + FirebaseAuth.getInstance().getCurrentUser())
+        return null
+    }
 }
