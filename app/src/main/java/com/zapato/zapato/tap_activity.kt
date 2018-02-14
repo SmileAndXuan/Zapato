@@ -92,12 +92,11 @@ class tap_activity : AppCompatActivity() {
         //Log.d("FU5", FirebaseDatabase.getInstance().getReference().child("name").setValue("hoiooio")
 
         var fba : FirebaseUser? = FirebaseAuth.getInstance().getCurrentUser()
-        var db : DatabaseReference? = null
-        db = FirebaseDatabase.getInstance().reference
+        var db : DatabaseReference? = FirebaseDatabase.getInstance().reference
         db!!.child("users").child(fba!!.uid).child("name").setValue("cool, bro")
 
 
-
+/*
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
             for (profile in user.providerData) {
@@ -113,7 +112,7 @@ class tap_activity : AppCompatActivity() {
                 val photoUrl = profile.photoUrl
             }
         }
-
+*/
 
         //tab_host.setOnClickListener { UserCustomMethod() }
     }
