@@ -135,6 +135,7 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener(this@MainActivity) { AuthResultTask ->
                     if (AuthResultTask.isSuccessful) {
 
+                        /*
                         //////////////////////////////////////////////////////////////////////
                         var pref = getApplicationContext().getSharedPreferences("MyPref", 0) // 0 - for private mode
                         var editor = pref.edit()
@@ -146,7 +147,8 @@ class MainActivity : AppCompatActivity() {
 
                         editor.commit(); // commit changes
                         //////////////////////////////////////////////////////////////////////
-
+                        */
+                        /*
                         var prefs: Prefs? = null
 
                         prefs = Prefs(this)
@@ -156,7 +158,7 @@ class MainActivity : AppCompatActivity() {
                         prefs!!.bgColor = color
 
                         Log.d("Store my data", "" + prefs!!.bgColor)
-
+                        */
 
                         //SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
                         //editor.putString("name", "Elena");
@@ -222,9 +224,4 @@ class MainActivity : AppCompatActivity() {
         val userId = firebaseAuth!!.currentUser!!.uid
         my_users_Ref!!.child(userId).setValue(user)
     }
-
-
-
-
 }
-
