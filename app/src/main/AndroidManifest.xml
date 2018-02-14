@@ -17,7 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".tap_activity"/>
-        <activity android:name=".tap_activity2"/>
         <activity android:name=".LoginActivity"/>
     </application>
 

@@ -1,6 +1,5 @@
 package com.zapato.zapato;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +15,6 @@ public class LoginActivity extends Activity {
 
     // login button
     Button btnLogin;
-package com.zapato.zapato
 
     // Alert Dialog Manager
     AlertDialogManager alert = new AlertDialogManager();
