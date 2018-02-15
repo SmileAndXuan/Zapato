@@ -48,6 +48,14 @@ class tap_activity2 : AppCompatActivity() {
         // Setting up name into TextView.
         username_textview.text = "Hi " + username
 
+        // Get the currently signed-in user
+        var user : FirebaseUser? = FirebaseAuth.getInstance().getCurrentUser()
+        if (user != null) {
+            // User is signed in
+        } else {
+            // No user is signed in
+        }
+
         // Firebase record call as current google logged in user
         var fba : FirebaseUser? = FirebaseAuth.getInstance().getCurrentUser()
         var db : DatabaseReference? = FirebaseDatabase.getInstance().reference
