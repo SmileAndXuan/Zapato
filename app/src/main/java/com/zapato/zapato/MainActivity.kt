@@ -132,7 +132,7 @@ class MainActivity : AppCompatActivity() {
                         val firebaseUser = firebaseAuth.currentUser
 
                         // saving new user's data to firebase database
-                        writeNewUser("myusername", "myemail");
+                        //writeNewUser("myusername", "myemail");
 
                         // creating a user object
                         val user = User(firebaseUser!!.displayName!!.toString(), firebaseUser.email!!.toString(), firebaseUser.uid)
