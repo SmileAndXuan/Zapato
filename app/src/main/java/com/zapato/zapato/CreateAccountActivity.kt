@@ -11,56 +11,29 @@ import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import kotlinx.android.synthetic.main.activity_tab.*
+//import kotlinx.android.synthetic.main.activity_tab.*
+import kotlinx.android.synthetic.main.create_account.*
 import com.google.firebase.internal.FirebaseAppHelper.getUid
 import com.google.firebase.auth.UserInfo
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import java.util.*
 
-class tap_activity : AppCompatActivity() {
+class CreateAccountActivity : AppCompatActivity() {
 
     //var ref = FirebaseDatabase.getInstance().getReference("users")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tab)
+        setContentView(R.layout.create_account)
 
-        // setup tap host
-        tab_host.setup()
 
-        // setup tabs
-        var spec = tab_host.newTabSpec("Tab One")
-        spec.setContent(R.id.tab_one)
-        spec.setIndicator("Tab One")
-        tab_host.addTab(spec)
-
-        spec = tab_host.newTabSpec("Tab Two")
-        spec.setContent(R.id.tab_two)
-        spec.setIndicator("Tab Two")
-        tab_host.addTab(spec)
-
-        spec = tab_host.newTabSpec("Tab Three")
-        spec.setContent(R.id.tab_three)
-        spec.setIndicator("Tab Three")
-        tab_host.addTab(spec)
-
-        // receive data from MainActivity
-        var username = intent.getStringExtra("username")
-
-        // Setting up name into TextView.
-        username_textview.text = "Hi " + username
 
         // Firebase record call as current google logged in user
         var fba : FirebaseUser? = FirebaseAuth.getInstance().getCurrentUser()
         var db : DatabaseReference? = FirebaseDatabase.getInstance().reference
-        //db!!.child("users").child(fba!!.uid).child("name").setValue("Bruh==James")
-        //db!!.child("users").child(fba!!.uid).child("shipping_address").setValue("addresses")
-        //db!!.child("users").child(fba!!.uid).child("shipping_address").child("addresses1").setValue("home")
-        //db!!.child("users").child(fba!!.uid).child("shipping_address").child("addresses1").child("home").setValue("Bruh's room")
-        //db!!.child("users").child(fba!!.uid).child("shipping_address").child("addresses2").setValue("dorm")
-        //db!!.child("users").child(fba!!.uid).child("shipping_address").child("addresses3").setValue("man cave in the mountain")
-        //db!!.child("users").child(fba!!.uid).child("shipping_date").setValue("send it now duh")
-        //db!!.child("users").child(fba!!.uid).child("payment").setValue("send it now duh")
+
+
 
         db!!.child("users").child(fba!!.uid).child("0_0foodforthought").setValue("For privacy(customer satisfaction and civilized conduct of business) need to encrypt certain data of customers so that customer services don't look at their confidential data. Include code to decrypt only on user's agreement authorization signature or decrypt only with customer's phone")
         db!!.child("users").child(fba!!.uid).child("0_1account_behavior").setValue("if: good(access granted)/bad(marked bad and access revoked after Zapato Admins' review. Need code to detect bad behavior and customer report code)")
@@ -157,12 +130,13 @@ class tap_activity : AppCompatActivity() {
         //val key = ref.push().key
         //ref.child(key).setValue("uniquetest")
 
-        tab_host.setOnClickListener { UserCustomMethod() }
+        button2.setOnClickListener { UserCustomMethod() }
     }
 
     fun UserCustomMethod() {
-        val intent2 = Intent(this, CreateAccountActivity::class.java)
-        //intent.putExtra("datatopasstonextactivity", user.datatopasstonextactivity)
-        startActivity(intent2)
+        val r = Random()
+        var fba : FirebaseUser? = FirebaseAuth.getInstance().getCurrentUser()
+        var db : DatabaseReference? = FirebaseDatabase.getInstance().reference
+        db!!.child("users").child(fba!!.uid).child("000a" + r.nextInt()).setValue("test")
     }
 }
