@@ -20,6 +20,7 @@
         <activity android:name=".tap_activity2"/>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".CreateAccountActivity"/>
+
     </application>
 
 </manifest>

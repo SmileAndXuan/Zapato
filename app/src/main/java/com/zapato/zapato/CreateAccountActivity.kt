@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
@@ -18,6 +19,7 @@ import com.google.firebase.auth.UserInfo
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.util.*
+import com.stripe.android.view.CardInputWidget;
 
 class CreateAccountActivity : AppCompatActivity() {
 
@@ -28,6 +30,11 @@ class CreateAccountActivity : AppCompatActivity() {
         setContentView(R.layout.create_account)
 
 
+        val mCardInputWidget = findViewById<View>(R.id.card_input_widget) as CardInputWidget
+        val cardToSave = mCardInputWidget.card
+        //if (cardToSave == null) {
+        //    mErrorDialogHandler.showError("Invalid Card Data")
+        //}
 
         // Firebase record call as current google logged in user
         var fba : FirebaseUser? = FirebaseAuth.getInstance().getCurrentUser()
